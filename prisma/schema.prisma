@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid()) // Gera o id automaticamente pelo prisma
+  name      String
+  email     String   @unique // Não permite email repetido dentro do banco de dados
+  role      String   @default("USER")
+  status    Boolean  @default(true)
+  password  String
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+  movies    Movie[]
+}
+
+model Movie {
+  id        String   @id @default(uuid())
+  name      String
+  year      DateTime
+  lenght    DateTime
+  storyline String
+  image     String
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+  users     User[]
+}
+
+// Depois que criar o modelo da tabela
+// 1 - npx prisma format / para aplicar formatação na tabela.
+// 2 - npx prisma migrate dev / para cria a migrate.
+// 3 - npx prisma generate / atualiza o prisma client para poder usar as funções dentro da nova tabela criada

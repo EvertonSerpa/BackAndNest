@@ -1,0 +1,7 @@
+Comandos para gerar o module movies
+
+1 - npx nest generate module movies --no-spec
+2 - npx nest generate controller movies --no-spec
+2 - npx nest generate service movies --no-spec
+
+--no-spec não inclui esse arquivo na hora da criação do modulo

@@ -1,0 +1,6 @@
+Comandos para gerar o module users
+
+1 - npx nest generate module users --no-spec
+2 - npx nest generate controller users --no-spec
+2 - npx nest generate service users --no-spec
+--no-spec não inclui esse arquivo na hora da criação do modulo
